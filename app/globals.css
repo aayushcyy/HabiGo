@@ -47,6 +47,14 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
+  --primary-bg: #fd6e20;
+  --secondary-bg: #fbe5e497;
+  --ternary-bg: #fd6d2025;
+  --primary-text: #010409;
+  --secondary-text: #f85700;
+  --ternary-text: #868686;
+  --primary-border: rgb(231, 231, 231);
+
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
