@@ -45,9 +45,19 @@
 }
 
 :root {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f1f5f9;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-primary: #6366f1;
+  --color-primary-dark: #0000ff;
+  --color-border: #cdcdcd;
+  --color-progress-track: #1e293b;
+
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --primary-bg: #fd6e20;
+
   --secondary-bg: #fbe5e497;
   --ternary-bg: #fd6d2025;
   --primary-text: #010409;

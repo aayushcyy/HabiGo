@@ -4,9 +4,10 @@ import Image from "next/image";
 import Person1 from "../../public/images/person1.webp";
 import Person3 from "../../public/images/person3.webp";
 import Person4 from "../../public/images/person4.webp";
-import { CalendarDays } from "lucide-react";
+import { CalendarDays, Clock } from "lucide-react";
 import type { CustomDate } from "../types/next-pwa.d.ts";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { AnimatedCircularProgressBar } from "@/components/magicui/animated-circular-progress-bar";
 
 const dates: CustomDate[] = [
   {
@@ -18,7 +19,7 @@ const dates: CustomDate[] = [
     day: "thu",
   },
   {
-    dateN: 8,
+    dateN: 6,
     day: "fri",
   },
   {
@@ -45,7 +46,7 @@ const dates: CustomDate[] = [
 
 export default function Home() {
   return (
-    <div className="text-[#010409] w-full h-screen flex-col flex bg-[var(--secondary-bg)]">
+    <div className="text-[#010409] w-full h-screen flex-col flex bg-[var(--color-bg-secondary)]">
       <Header />
       {/* Notification */}
       <section className="w-full flex justify-between px-3 pt-2 pb-1">
@@ -56,7 +57,7 @@ export default function Home() {
               <p className="text-sm text-[#868686]">Ending in 23hrs</p>
             </div>
             <div className="flex items-end justify-center w-32 relative">
-              <div className="w-8 h-8 overflow-hidden rounded-full absolute left-[72px] bottom-0 bg-[var(--ternary-bg)] text-center text-[var(--primary-bg)] font-medium text-xs flex items-center justify-center border-white border-[2px]">
+              <div className="w-8 h-8 overflow-hidden rounded-full absolute left-[72px] bottom-0 bg-[var(--color-bg-secondary)] text-center text-[var(--color-primary-dark)] font-medium text-xs flex items-center justify-center border-white border-[2px]">
                 +2
               </div>
               <div className="w-8 h-8 border-white border-[2px] overflow-hidden rounded-full absolute left-12 bottom-0">
@@ -118,15 +119,72 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-full h-20 bg-green-700 px-3 py-2">
-        <div className="w-full h-full bg-white rounded-lg flex">
+      {/* Reminder */}
+      <section className="w-full h-20 px-3 py-2">
+        <div className="w-full h-full bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg flex px-4 items-center gap-3">
           <div>
-            <div></div>
+            <div>
+              <AnimatedCircularProgressBar
+                className="h-10 w-10 text-[12px]"
+                max={100}
+                min={0}
+                value={25}
+                gaugePrimaryColor="#fff"
+                gaugeSecondaryColor="#fff"
+              ></AnimatedCircularProgressBar>
+            </div>
           </div>
-          <div>
-            <p>Your daily goals almost done!🔥</p>
+          <div className="text-xs flex flex-col gap-1">
+            <p className="text-base font-medium">
+              Your daily goals almost done!🔥
+            </p>
             <p>1 of 4 completed</p>
           </div>
+        </div>
+      </section>
+      <section className="w-full h-28 flex px-3 flex-col mt-2 gap-1">
+        <div className="flex w-full justify-between items-center font-semibold">
+          <p>Challenges</p>
+          <p className="uppercase text-xs font-medium">View all</p>
+        </div>
+        <div className="w-full h-full bg-white rounded-lg border-[2px] border-gray-200 flex justify-between items-center px-4">
+          <div className="flex gap-3 h-full items-center">
+            <div className="flex rounded-full items-center">
+              <Clock className="size-6" color="#1D4ED8" />
+            </div>
+            <div className="flex flex-col text-xs font-medium text-[var(--color-text-secondary)]">
+              <p className="text-lg font-semibold">Best Runners!🏃‍♂️</p>
+              <p>5 days 13 hours left</p>
+            </div>
+          </div>
+          <div className="flex flex-col text-xs text-[var(--color-text-secondary)] font-medium">
+            <div className="flex items-end justify-end relative">
+              <div className="w-6 h-6 border-white border-[2px] overflow-hidden rounded-full -mr-1.5 bottom-0">
+                <Image
+                  src={Person4}
+                  alt=""
+                  height={600}
+                  width={600}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+              <div className="w-6 h-6 border-white border-[2px] overflow-hidden rounded-full bottom-0">
+                <Image
+                  src={Person3}
+                  alt=""
+                  height={600}
+                  width={600}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            </div>
+            <div>2 friends joined</div>
+          </div>
+        </div>
+        <div className="w-full flex justify-center items-center pt-0.5 gap-2">
+          <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+          <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+          <span className="w-1.5 h-1.5 bg-gray-300 rounded-full"></span>
         </div>
       </section>
     </div>

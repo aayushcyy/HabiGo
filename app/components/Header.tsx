@@ -21,7 +21,7 @@ export default function Header() {
           />
         </div>
         <div className="flex flex-col text-center justify-center">
-          <h1 className="text-lg font-semibold">Hello, Aayush</h1>
+          <h1 className="text-lg font-semibold">Hello, Aayushi</h1>
           <p className="text-[#868686] text-xs font-medium">Today {today}</p>
         </div>
         <div className="flex items-center justify-center">
