@@ -5,6 +5,43 @@ import Person1 from "../../public/images/person1.webp";
 import Person3 from "../../public/images/person3.webp";
 import Person4 from "../../public/images/person4.webp";
 import { CalendarDays } from "lucide-react";
+import type { CustomDate } from "../types/next-pwa.d.ts";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+
+const dates: CustomDate[] = [
+  {
+    dateN: 6,
+    day: "Wed",
+  },
+  {
+    dateN: 7,
+    day: "thu",
+  },
+  {
+    dateN: 8,
+    day: "fri",
+  },
+  {
+    dateN: 9,
+    day: "sat",
+  },
+  {
+    dateN: 10,
+    day: "sun",
+  },
+  {
+    dateN: 11,
+    day: "mon",
+  },
+  {
+    dateN: 12,
+    day: "tue",
+  },
+  {
+    dateN: 13,
+    day: "wed",
+  },
+];
 
 export default function Home() {
   return (
@@ -60,31 +97,36 @@ export default function Home() {
         </div>
       </section>
       {/* Date section */}
-      <section className="w-full h-20 flex">
-        <div className="flex gap-3 overflow-x-scroll w-[75%]">
-          <div className="flex flex-col items-center rounded-xl h-16 w-13 border-2 border-[var(--primary-border)] bg-white justify-center text-xl text-[var(--primary-text)] border-[] font-semibold">
-            <p>6</p>
-            <p className="text-xs uppercase font-medium">Wed</p>
+      <section className="w-full h-20 flex justify-between items-center">
+        <ScrollArea className="w-[75%] rounded-md whitespace-nowrap scrollbar-hidden">
+          <div className="flex gap-3">
+            {dates.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center rounded-xl h-16 w-13 border-2 border-[var(--primary-border)] bg-white justify-center text-xl text-[var(--primary-text)] border-[] font-semibold"
+              >
+                <p>{item.dateN}</p>
+                <p className="text-xs uppercase font-medium">{item.day}</p>
+              </div>
+            ))}
           </div>
-          <div className="flex flex-col items-center rounded-xl h-16 w-13 border-2 border-[var(--primary-border)] bg-white justify-center text-xl text-[var(--primary-text)] border-[] font-semibold">
-            <p>7</p>
-            <p className="text-xs uppercase font-medium">Thu</p>
-          </div>
-          <div className="flex flex-col items-center rounded-xl h-16 w-13 border-2 border-[var(--primary-border)] bg-white justify-center text-xl text-[var(--primary-text)] border-[] font-semibold">
-            <p>8</p>
-            <p className="text-xs uppercase font-medium">Fri</p>
-          </div>
-          <div className="flex flex-col items-center rounded-xl h-16 w-13 border-2 border-[var(--primary-border)] bg-white justify-center text-xl text-[var(--primary-text)] border-[] font-semibold">
-            <p>9</p>
-            <p className="text-xs uppercase font-medium">Sat</p>
-          </div>
-          <div className="flex flex-col items-center rounded-xl h-16 w-13 border-2 border-[var(--secondary-text)] bg-white justify-center text-xl text-[var(--secondary-text)] border-[] font-semibold">
-            <p>10</p>
-            <p className="text-xs uppercase font-medium">sun</p>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+        <div className="w-20 h-15 px-3 flex items-center">
+          <div className="bg-white h-full border-2 border-[var(--primary-border)] rounded-lg w-full px-3 flex items-center justify-center">
+            <CalendarDays className="" />
           </div>
         </div>
-        <div className="w-20 h-15 bg-white">
-          <CalendarDays />
+      </section>
+      <section className="w-full h-20 bg-green-700 px-3 py-2">
+        <div className="w-full h-full bg-white rounded-lg flex">
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <p>Your daily goals almost done!🔥</p>
+            <p>1 of 4 completed</p>
+          </div>
         </div>
       </section>
     </div>

@@ -15,3 +15,8 @@ declare module "next-pwa" {
     config: NextConfig & { pwa?: PWAOptions }
   ): NextConfig;
 }
+
+export interface CustomDate {
+  dateN: number;
+  day: string;
+}
