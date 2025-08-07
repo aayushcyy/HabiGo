@@ -1,4 +1,5 @@
 // types/next-pwa.d.ts
+import { StaticImageData } from "next/image";
 
 declare module "next-pwa" {
   import { NextConfig } from "next";
@@ -19,4 +20,11 @@ declare module "next-pwa" {
 export interface CustomDate {
   dateN: number;
   day: string;
+}
+export interface Habits {
+  title: string;
+  emoji: string;
+  subTitle: string;
+  peopleFollow: StaticImageData[];
+  completed: boolean;
 }
